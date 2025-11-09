@@ -23,6 +23,7 @@ body{
 }
 
 #popups{
+    z-index: 100;
     width: 100vw;
     display: flex;
     position: fixed;
