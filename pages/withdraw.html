@@ -1,11 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rút tiền - Nói không với lỗ vốn</title>
+    <link rel="stylesheet" href="../styles/general.css">
+    <link rel="stylesheet" href="../styles/withdraw.css">
 </head>
+
 <body>
+    <a href="../index.html" id="home" class="glow-box">Trang chủ</a>
     
+    <div class="app">
+        <div class="left">
+            <div class="card">
+                <div class="title">Tài khoản</div>
+                <div class="balance" id="balance">₫ 1,250,000</div>
+                <div class="controls">
+                    <button id="withdraw" class="btn">Rút tiền</button>
+                    <button id="auto" class="btn secondary">Tự động (x10)</button>
+                    <div style="margin-left:auto;text-align:right">
+                        <div class="small">Lợi nhuận dự kiến</div>
+                        <div class="profit-big" id="project">₫ 0</div>
+                    </div>
+                </div>
+                <div style="margin-top:14px" class="small">Giao dịch gần đây</div>
+                <img id="meme" src="https://kinhnghiemchungkhoan.com/wp-content/uploads/2021/11/Stonk-1.jpg" alt="">
+            </div>
+            <div class="card" style="padding:12px">
+                <div class="title">Cài đặt hiển thị</div>
+                <div id="setting">
+                    <label><input id="many" type="checkbox"> 
+                        Hiện nhiều thông báo</label>
+                    <label style="margin-left:18px">
+                        <input id="confettiToggle" type="checkbox">Hiệu ứng</label>
+                </div>
+            </div>
+        </div>
+        <div class="chart-wrap">
+            <div class="card sparkline">
+                <div class="title">Biểu đồ lợi nhuận</div>
+                <canvas id="profit-chart"></canvas>
+            </div>
+            <div id="feed-container" class="card">
+                <div class="title">Luồng giao dịch</div>
+                <div class="log-stream" id="feed"></div>
+            </div>
+        </div>
+    </div>
+    <div class="toasts" id="toasts"></div>
+    <div class="confetti" id="confetti"></div>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="../scripts/withdraw.js"></script>
 </body>
+
 </html>

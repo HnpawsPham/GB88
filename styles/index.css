@@ -57,6 +57,10 @@
     padding: 10px 20px;
 }
 
+#footer .glow-box{
+    width: 70%;
+}
+
 .slogan {
     width: 78vw;
     margin: auto;
