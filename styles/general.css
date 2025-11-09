@@ -1,0 +1,62 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+:root{
+    --blue: rgb(114, 114, 255);
+    --gray: rgb(31, 31, 34);
+    --dark: rgb(27, 27, 29);
+    --yellow: rgb(255, 128, 0);
+}
+
+@font-face {
+    /* font-family: main; */
+    src: url(../font/zee.ttf);
+}
+
+body{
+    font-family: main;
+    background-color: black;
+    color: white;
+    overflow-x: hidden;
+}
+
+#popups{
+    width: 100vw;
+    display: flex;
+    position: fixed;
+    bottom: 0;
+    height: 10vh;
+}
+
+#popups img{
+    width: 50%;
+}
+
+.glow-box {
+    text-align: center;
+    width: 70%;
+    padding: 5px 8px;
+    border-radius: 10px;
+    background: linear-gradient(135deg, rgb(255, 128, 0), rgb(200, 80, 0));
+    filter: drop-shadow(0 0 5px var(--yellow));
+}
+
+a{
+    text-decoration: none;
+}
+
+@keyframes slide {
+    from {
+        background-position: 0%
+    }
+
+    to {
+        background-position: 200%
+    }
+}
+
+button, input[type="submit"]{
+    font-family: main;
+}

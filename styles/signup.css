@@ -1,0 +1,87 @@
+body{
+    overflow-x: hidden;
+    background-image: url(../assets/login-bg.jpg);
+    background-position: center;
+    background-size: cover;
+}
+
+#home{
+    top: 10;
+    left: 10;
+    font-size: 30px;
+    color: white;
+    padding: 10px 20px;
+}
+
+#form{
+    width: 50vw;
+    height: 70vh;
+    border-radius: 15px;
+    margin: 15vh auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    border: 2px solid var(--yellow);
+    background-color: black;
+    filter: drop-shadow(0 0 10px var(--yellow));
+}
+
+#form h1{
+    font-weight: bold;
+    color: var(--yellow);
+    text-shadow: var(--yellow) 1px 0 10px;
+    background-size: 200%;
+    -webkit-background-clip: text;
+    animation: slide 3s linear infinite;
+}
+
+#form div{
+    width: 80%;
+    display: flex;
+    margin: 12px 0;
+}
+
+#form div span{
+    width: 20%;
+}
+
+#form div input{
+    width: 80%;
+    border-radius: 10px;
+    margin-left: 10px;
+    padding: 10px 20px;
+    border: none;
+}
+
+#form input[type="submit"]{
+    font-size: 20px;
+    width: 60%;
+    cursor: pointer;
+    border-radius: 10px;
+    padding: 15px 20px;
+    color: white;
+    border: none;
+}
+
+#popup{
+    position: fixed;
+    bottom: 50px;
+    right: 10px;
+}
+
+.special{
+    display: flex;
+    justify-content: space-between;
+}
+
+.special a{
+    color: var(--blue);
+}
+
+.banner{
+    width: 100vw;
+    height: 100px;
+    object-fit: contain;
+}
