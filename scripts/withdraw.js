@@ -2,10 +2,12 @@ const formatVnd = n => {
     const x = Math.round(n / 1000) * 1000
     return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.')
 }
+
 const balanceDisplay = document.getElementById('balance')
 const logs = document.getElementById('logs')
 const feed = document.getElementById('feed')
-const toasts = document.getElementById('toasts')
+const toasts = document.getElementById('toasts');
+const memeImg = document.getElementById("meme");
 const project = document.getElementById('project')
 const ctx = document.getElementById('profit-chart').getContext('2d')
 const data = {
@@ -46,6 +48,9 @@ const chart = new Chart(ctx, {
 let balance = 1200000;
 let projectedCnt = 0;
 balanceDisplay.innerText = '₫ ' + formatVnd(balance);
+
+const stinkMemeSrc = "https://external-preview.redd.it/QiGf1gVzWUilI05Mak33mt3MHqOlDFq692bcAdF4XWw.jpg?auto=webp&s=b58c5a86d94fe0eb16637e4df1100cb74b62f9c5";
+const stonkMemeSrc = "https://kinhnghiemchungkhoan.com/wp-content/uploads/2021/11/Stonk-1.jpg";
 
 function pushPoint(value) {
     const now = new Date()
@@ -145,7 +150,7 @@ document.getElementById('auto').addEventListener('click', function () {
 function effect() {
     const wrap = document.getElementById('confetti')
     for (let i = 0; i < 40; i = i + 1) {
-        const p = document.createElement('div')
+        const p = document.createElement('div');
 
         p.className = 'p'
         p.style.left = Math.random() * 100 + '%'
@@ -182,8 +187,77 @@ function notstonk() {
 }
 
 setInterval(function () {
-    notstonk()
+    notstonk();
 }, 1500);
 
 for (let i = 0; i < 8; i = i + 1)
-    pushPoint(120000 + i * 800)
+    pushPoint(120000 + i * 800);
+
+// MONEY DECREASING
+let stinkActive = false;
+
+function stink() {
+    if (!stinkActive) return;
+
+    const amount = randomAmount();
+    balance -= amount;
+    balanceDisplay.innerText = '₫ ' + formatVnd(balance);
+
+    memeImg.src = stinkMemeSrc;
+
+    const t = document.createElement('div')
+    t.className = 'toast'
+    t.innerHTML = '<div>Lỗ: ₫ ' + formatVnd(amount) + '</div>'
+                + '<div class="sub">Xảy ra lỗ</div>'
+    t.style.border = '1px solid #ff0000'
+    t.style.background = 'rgba(255,0,0,0.1)'
+    toasts.prepend(t)
+
+    const delay = 3500 + Math.random() * 3000
+    t.style.animation = 'floatUp 1.2s ease forwards'
+
+    setTimeout(function () {
+        t.style.transition = 'opacity 400ms, transform 400ms'
+        t.style.opacity = '0'
+        t.style.transform = 'translateY(-20px)';
+        setTimeout(function () {
+            if (t.parentNode) t.parentNode.removeChild(t)
+        }, 420)
+    }, delay);
+
+    feedDisplay('Lỗ: ₫ ' + formatVnd(amount) + ' • -' + Math.round(amount / 1000000) + 'M');
+
+    const last = data.datasets[0].data.length ? data.datasets[0].data[data.datasets[0].data.length - 1] : 0;
+    data.datasets[0].borderColor = 'rgba(255,0,0,0.95)';
+    data.datasets[0].backgroundColor = function(context) {
+        const g = context.chart.ctx.createLinearGradient(0, 0, 0, 300);
+        g.addColorStop(0, 'rgba(255,0,0,0.18)');
+        g.addColorStop(1, 'rgba(0,0,0,0)');
+        return g;
+    };
+    pushPoint(last - Math.round(amount / 5000));
+}
+
+document.addEventListener('keydown', function(e) {
+    if (e.key === 'ArrowDown' && !stinkActive) {
+        stinkActive = true;
+        stinkInterval = setInterval(stink, 500);
+    }
+});
+
+document.addEventListener('keyup', function(e) {
+    if (e.key === 'ArrowDown' && stinkActive) {
+        stinkActive = false;
+        clearInterval(stinkInterval);
+
+        memeImg.src = stonkMemeSrc;
+
+        data.datasets[0].borderColor = 'rgba(0,230,118,0.95)';
+        data.datasets[0].backgroundColor = function(context) {
+            const g = context.chart.ctx.createLinearGradient(0, 0, 0, 300);
+            g.addColorStop(0, 'rgba(0,230,118,0.18)');
+            g.addColorStop(1, 'rgba(0,0,0,0)');
+            return g;
+        };
+    }
+});
