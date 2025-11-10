@@ -10,8 +10,16 @@
     border-bottom: 2px solid var(--yellow);
 }
 
-#logo {
+#logo-container {
     width: 20%;
+    margin-top: 8px;
+    height: 80%;
+    display: flex;
+    justify-content: left;
+}
+
+#logo{
+    margin-left: 30px;
     object-fit: contain;
 }
 
@@ -33,7 +41,7 @@
 }
 
 #footer {
-    font-size: 18px;
+    font-size: 26px;
     width: 100vw;
     background-color: var(--gray);
     display: flex;
@@ -53,8 +61,8 @@
 }
 
 #footer .col span {
-    font-size: 23px;
-    padding: 10px 20px;
+    font-size: 30px;
+    padding: 2px 20px 8px 20px;
 }
 
 #footer .glow-box{
@@ -136,6 +144,37 @@ h2 {
     width: 500px;
 }
 
+#intro #phone-inp{
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    background-color: white;
+    width: 500px;
+    height: 200px;
+    border-radius: 10px;
+    position: absolute;
+    top: 30%;
+    left: 30%;
+}
+
+#intro #phone-inp button{
+    width: 40%;
+    border: none;
+    cursor: pointer;
+}
+
+#intro #phone-inp h2{
+    color: black;
+    font-size: 25px;
+}
+
+#intro #phone-inp input{
+    border-radius: 10px;
+    padding: 10px 20px;
+    width: 80%;
+    font-family: 'Times New Roman';
+}
+
 #casino-introduction {
     width: 78vw;
     margin: auto;
@@ -149,10 +188,10 @@ h2 {
 }
 
 .slogan p {
-    font-size: 34px;
+    font-size: 40px;
     font-weight: 700;
     text-align: center;
-    padding: 20px 10px;
+    padding: 10px 10px 20px 10px;
     background: linear-gradient(90deg, rgb(255, 128, 0), rgb(242, 255, 0), rgb(255, 77, 0));
     background-size: 200%;
     -webkit-background-clip: text;

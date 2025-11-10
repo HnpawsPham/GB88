@@ -3,6 +3,8 @@ const options = document.getElementById("options");
 const noBtn = document.getElementById("no-btn");
 const yesBtn = document.getElementById("yes-btn");
 const memeImg = document.getElementById("meme");
+const phoneInp = document.getElementById("phone-inp");
+const okBtn = document.querySelector("#phone-inp>button");
 
 video.addEventListener("timeupdate", () => {
     if (video.currentTime >= video.duration - 0.1)
@@ -31,11 +33,25 @@ noBtn.addEventListener("click", () => {
             noBtn.disabled = false;
         }, 2000);
     }
-    else if (noClickCnt >= 3 && noClickCnt < 8) {
+    else if (noClickCnt >= 3 && noClickCnt < 6) {
         options.classList.toggle("swap-buttons");
     }
     else {
         yesBtn.textContent = "Có";
         noBtn.textContent = "Có";
+
+        noBtn.addEventListener("click", () => {
+            phoneInp.style.display = "flex";
+        })
     }
 })
+
+yesBtn.addEventListener("click", () => {
+    phoneInp.style.display = "flex";
+})
+
+okBtn.addEventListener("click", () => {
+    phoneInp.style.display = "none";
+    options.style.display = "none";
+})
+

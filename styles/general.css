@@ -11,11 +11,12 @@
 }
 
 @font-face {
-    /* font-family: main; */
-    src: url(../font/zee.ttf);
+    font-family: main;
+    src: url(../font/SFUFunctionCondensed.TTF);
 }
 
 body{
+    font-size: larger;
     font-family: main;
     background-color: black;
     color: white;
