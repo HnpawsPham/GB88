@@ -22,7 +22,7 @@ body{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    font-size: 20px;
+    font-size: 25px;
     border: 2px solid var(--yellow);
     background-color: black;
     filter: drop-shadow(0 0 10px var(--yellow));
